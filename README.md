@@ -1,4 +1,4 @@
-# North Star Counseling — Website
+# Graduate School of Core Energetics — Website
 
 A static, no-build-tools website. Open `index.html` directly in a browser
 to preview, or deploy the whole folder as-is to any static host
@@ -43,8 +43,8 @@ Search the project for `[` to find every bracketed placeholder:
 - `[ (555) 555-0100 ]`, address, hours — in `index.html`, Contact section
 - `[Insurance / payment details — placeholder]` — FAQ section
 - `hello@example.com` — swap for your real email
-- "North Star Counseling" — swap for your real practice name (appears in
-  `<title>`, the nav, and the footer)
+- "Graduate School of Core Energetics" — the org name (appears in
+  `<title>`, the nav, and the footer) — update if it changes again
 
 ## Growing into a multi-page site
 

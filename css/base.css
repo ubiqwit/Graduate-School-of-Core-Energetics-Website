@@ -57,7 +57,8 @@ a{
 .wrap{
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 32px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 @media (prefers-reduced-motion: reduce){
