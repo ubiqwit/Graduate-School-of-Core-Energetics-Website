@@ -1,0 +1,88 @@
+/* ==========================================================================
+   HERO
+   The full-viewport landing visual: a looping background video with the
+   headline/CTA overlaid on top.
+
+   TO SET YOUR VIDEO:
+   - Drop your file into assets/video/ and update the <source src="..."> in
+     index.html to match its filename.
+   - Keep the file reasonably small/compressed — this plays on every visit,
+     so a multi-hundred-MB file will slow the page down noticeably.
+   - Aspect ratio: the video is cropped with object-fit: cover, so it fills
+     the hero on any screen size without distortion (edges may be cropped).
+   - A poster image (a still frame shown before the video loads) can be
+     added via <video poster="assets/images/hero-poster.jpg" ...>.
+   ========================================================================== */
+
+.hero{
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-indigo) 62%, var(--bg-indigo-2) 100%);
+}
+
+.hero-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark gradient over the video so the headline stays readable on top of it */
+.hero::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,13,28,0.35), rgba(10,13,28,0.6));
+  z-index: 2;
+}
+
+.hero-content{
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  padding: 0 6vw;
+}
+
+.hero-content h1{
+  font-size: clamp(2rem, 4.6vw, 3.6rem);
+  max-width: 15ch;
+  color: var(--ink);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.45);
+}
+
+.hero-content p{
+  margin-top: 20px;
+  max-width: 42ch;
+  color: var(--ink-dim);
+  font-size: 1.02rem;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+}
+
+.cta{
+  display: inline-block;
+  margin-top: 34px;
+  padding: 0 0 6px 0;
+  border: none;
+  border-bottom: 1px solid var(--ember);
+  color: var(--ember);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity 0.25s ease, letter-spacing 0.25s ease;
+}
+
+.cta:hover,
+.cta:focus-visible{
+  opacity: 0.75;
+  letter-spacing: 0.14em;
+}

@@ -1,0 +1,45 @@
+/* ==========================================================================
+   NAV
+   Overlay navigation bar that sits on top of the hero.
+   Reuse this file on every page for a consistent header.
+   ========================================================================== */
+
+nav{
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 40px;
+}
+
+.nav-name{
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.nav-links{
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a{
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--ink-dim);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible{
+  color: var(--ink);
+}
+
+@media (max-width: 860px){
+  nav{ padding: 22px 24px; }
+  .nav-links{ display: none; } /* swap for a mobile menu when the site grows */
+}

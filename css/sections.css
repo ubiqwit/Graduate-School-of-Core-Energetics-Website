@@ -1,0 +1,221 @@
+/* ==========================================================================
+   SECTIONS
+   Every content block below the hero. Organized in the same order they
+   appear on the page. Add new sections by copying the pattern of an
+   existing one (a wrapper class + a "section-head" + content).
+   ========================================================================== */
+
+section{
+  padding: 110px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+section:last-of-type{
+  border-bottom: none;
+}
+
+.section-head{
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+.section-head h2{
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  margin-top: 12px;
+}
+
+.lede{
+  font-size: 1.1rem;
+  color: var(--ink-dim);
+  max-width: 60ch;
+}
+
+/* ---------- Welcome ---------- */
+.welcome p{
+  font-size: 1.15rem;
+  max-width: 62ch;
+  color: var(--ink-dim);
+}
+.welcome p + p{ margin-top: 20px; }
+
+/* ---------- Approach ---------- */
+.approach-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.approach-grid p{ color: var(--ink-dim); font-size: 1rem; }
+.approach-grid p + p{ margin-top: 18px; }
+
+/* ---------- Pillars ---------- */
+.pillars{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.pillar{
+  background: var(--bg-indigo);
+  padding: 34px 26px;
+}
+
+.pillar .mark{
+  width: 34px; height: 34px;
+  border: 1px solid var(--violet);
+  border-radius: 50%;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.pillar .mark::after{
+  content: '';
+  position: absolute;
+  inset: 9px;
+  background: var(--silver);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.pillar h3{ font-size: 1.05rem; color: var(--ink); font-weight: 500; }
+.pillar p{ margin-top: 10px; font-size: 0.92rem; color: var(--ink-dim); }
+
+/* ---------- About ---------- */
+.about-grid{
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 52px;
+  align-items: start;
+}
+
+.about-photo{
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: linear-gradient(160deg, var(--bg-indigo-2), var(--violet));
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-dim);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 16px;
+}
+/* Swap the placeholder div above for: <img src="assets/images/portrait.jpg" alt="..."> */
+
+.about-copy h3{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.about-copy .cred{
+  color: var(--silver);
+  font-size: 0.85rem;
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
+.about-copy p{ color: var(--ink-dim); max-width: 56ch; }
+.about-copy p + p{ margin-top: 16px; }
+
+/* ---------- Services ---------- */
+.services-list{
+  display: grid;
+  gap: 0;
+}
+
+.service-row{
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+}
+
+.services-list .service-row:last-child{
+  border-bottom: 1px solid var(--line);
+}
+
+.service-row h3{ font-size: 1.05rem; font-weight: 500; color: var(--ink); }
+.service-row p{ color: var(--ink-dim); font-size: 0.96rem; }
+
+/* ---------- FAQ ---------- */
+.faq-item{
+  border-top: 1px solid var(--line);
+  padding: 26px 0;
+}
+
+.faq-item:last-child{
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item h3{
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.faq-item p{ color: var(--ink-dim); font-size: 0.96rem; max-width: 60ch; }
+
+/* ---------- Contact ---------- */
+.contact-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.contact-block h3{
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--silver);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.contact-block p{ color: var(--ink-dim); font-size: 0.98rem; }
+
+.contact-block a{
+  color: var(--ember);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,168,118,0.4);
+}
+
+.contact-block a:hover{ border-bottom-color: var(--ember); }
+
+.contact-note{
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-dim);
+  font-size: 0.9rem;
+  max-width: 56ch;
+}
+
+/* ---------- Footer ---------- */
+footer{
+  padding: 44px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--ink-dim);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px){
+  .approach-grid,
+  .about-grid,
+  .contact-grid{
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .pillars{ grid-template-columns: 1fr 1fr; }
+  .service-row{ grid-template-columns: 1fr; gap: 8px; }
+  section{ padding: 76px 0; }
+  footer{ flex-direction: column; gap: 8px; text-align: center; }
+}
