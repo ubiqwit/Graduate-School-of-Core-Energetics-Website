@@ -5,6 +5,38 @@
    existing one (a wrapper class + a "section-head" + content).
    ========================================================================== */
 
+/* ---------- Alternating dark/light backgrounds ----------
+   Every top-level <section> under <main> alternates automatically —
+   no classes to add or remember. Odd sections (1st, 3rd, 5th...) are
+   the light "paper" theme; even sections (2nd, 4th, 6th...) are the
+   dark indigo theme. (First section = light, on purpose.)
+
+   How it works: --ink, --ink-dim, --line, --silver, and --ember are
+   re-pointed to their "-on-light" counterparts (defined in variables.css)
+   for the whole odd-section subtree. Every rule below already reads
+   colors through var(--ink), var(--ink-dim) etc., so text, dividers, and
+   accents throughout the section flip automatically — nothing else in
+   this file needs a light-mode variant written by hand. If a new rule
+   ever hardcodes a color instead of using a token, it won't flip; use
+   the tokens.
+
+   To flip which parity is light vs dark again later, just swap the two
+   rule bodies below — nothing else needs to change. */
+section:nth-of-type(even){
+  background: var(--bg-indigo);
+  color: var(--ink);
+}
+
+section:nth-of-type(odd){
+  background: var(--paper);
+  color: var(--ink-on-light);
+  --ink: var(--ink-on-light);
+  --ink-dim: var(--ink-dim-on-light);
+  --line: var(--line-on-light);
+  --silver: var(--silver-on-light);
+  --ember: var(--ember-on-light);
+}
+
 section{
   padding: 130px 0;
   border-bottom: 1px solid var(--line);
@@ -31,6 +63,36 @@ section:last-of-type{
 }
 
 /* ---------- Welcome ---------- */
+.welcome-grid{
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 60px;
+  align-items: center;
+}
+
+.welcome-photo{
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: linear-gradient(160deg, var(--bg-indigo-2), var(--violet));
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-dim);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 16px;
+  overflow: hidden; /* safety net so an oversized image can't blow out the box */
+}
+
+.welcome-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crops to fill the box instead of stretching or overflowing */
+  display: block;
+}
+/* Swap the placeholder div above for: <img src="assets/images/welcome-photo.jpg" alt="..."> */
+
 .welcome p{
   font-size: 1.15rem;
   max-width: 62ch;
@@ -48,49 +110,112 @@ section:last-of-type{
 .approach-grid p{ color: var(--ink-dim); font-size: 1rem; }
 .approach-grid p + p{ margin-top: 18px; }
 
-/* ---------- Pillars ---------- */
-.pillars{
+/* ---------- Curriculum ----------
+   A row-per-course list instead of a card grid on purpose: course entries
+   vary wildly in description length (some are a sentence, one is several
+   paragraphs), and a fixed-height card grid makes short cards look like
+   empty boxes and/or clips long ones. Rows have no height in common with
+   each other, so each entry just takes the space its own content needs. */
+.curriculum-list{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  gap: 0;
 }
 
-.pillar{
-  background: var(--bg-indigo);
-  padding: 42px 30px;
-}
-
-.pillar .mark{
-  width: 34px; height: 34px;
-  border: 1px solid var(--violet);
-  border-radius: 50%;
-  margin-bottom: 22px;
-  position: relative;
-}
-
-.pillar .mark::after{
-  content: '';
-  position: absolute;
-  inset: 9px;
-  background: var(--silver);
-  border-radius: 50%;
-  opacity: 0.7;
-}
-
-.pillar h3{ font-size: 1.05rem; color: var(--ink); font-weight: 500; }
-.pillar p{ margin-top: 10px; font-size: 0.92rem; color: var(--ink-dim); }
-
-/* ---------- About ---------- */
-.about-grid{
+.curriculum-row{
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 52px;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 44px 0;
+  border-top: 1px solid var(--line);
+}
+
+.curriculum-list .curriculum-row:last-child{
+  border-bottom: 1px solid var(--line);
+}
+
+.curriculum-date{
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.curriculum-instructor{
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--ink-dim);
+}
+
+.curriculum-body h3{
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.curriculum-body p{
+  margin-top: 14px;
+  color: var(--ink-dim);
+  font-size: 0.98rem;
+  max-width: 65ch;
+}
+
+.curriculum-body p + p{ margin-top: 12px; }
+
+.curriculum-info{
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 44px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+
+.curriculum-info div{
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.curriculum-info div strong{
+  display: block;
+  margin-top: 8px;
+  font-size: 1rem;
+  letter-spacing: normal;
+  text-transform: none;
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ---------- Faculty ----------
+   A row per person (fixed-width photo + flexible bio column) instead of
+   a card grid — same pattern as .curriculum-row / .service-row below.
+   A fixed photo column scales cleanly at every width; a grid of cards
+   sized with max-width leaves an awkward gap at in-between widths where
+   the column is wider than the capped photo but not yet narrow enough
+   to stack. Rows sidestep that entirely. */
+.faculty-list{
+  display: grid;
+  gap: 0;
+}
+
+.faculty-row{
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 36px;
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
   align-items: start;
 }
 
-.about-photo{
+.faculty-list .faculty-row:last-child{
+  border-bottom: 1px solid var(--line);
+}
+
+.faculty-photo{
   width: 100%;
   aspect-ratio: 4/5;
   background: linear-gradient(160deg, var(--bg-indigo-2), var(--violet));
@@ -99,26 +224,32 @@ section:last-of-type{
   align-items: center;
   justify-content: center;
   color: var(--ink-dim);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   text-align: center;
-  padding: 16px;
+  padding: 10px;
+  overflow: hidden; /* safety net so an oversized image can't blow out the box */
 }
-/* Swap the placeholder div above for: <img src="assets/images/portrait.jpg" alt="..."> */
 
-.about-copy h3{
-  font-size: 1.2rem;
+.faculty-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crops to fill the 4:5 box instead of stretching or overflowing */
+  display: block;
+}
+/* Swap each placeholder div above for: <img src="assets/images/faculty-name.jpg" alt="..."> */
+
+.faculty-row h3{
+  font-size: 1.15rem;
   font-weight: 500;
+  color: var(--ink);
 }
 
-.about-copy .cred{
-  color: var(--silver);
-  font-size: 0.85rem;
-  margin-top: 6px;
-  margin-bottom: 20px;
+.faculty-row p{
+  margin-top: 10px;
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+  max-width: 56ch;
 }
-
-.about-copy p{ color: var(--ink-dim); max-width: 56ch; }
-.about-copy p + p{ margin-top: 16px; }
 
 /* ---------- Services ---------- */
 .services-list{
@@ -181,7 +312,7 @@ section:last-of-type{
 .contact-block a{
   color: var(--ember);
   text-decoration: none;
-  border-bottom: 1px solid rgba(201,168,118,0.4);
+  border-bottom: 1px solid color-mix(in srgb, var(--ember) 40%, transparent);
 }
 
 .contact-block a:hover{ border-bottom-color: var(--ember); }
@@ -196,6 +327,28 @@ section:last-of-type{
   max-width: 56ch;
 }
 
+.register-link{
+  grid-column: 1 / -1;
+  display: inline-block;
+  width: fit-content;
+  margin-top: 8px;
+  padding: 0 0 6px 0;
+  border: none;
+  border-bottom: 1px solid var(--ember);
+  color: var(--ember);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity 0.25s ease, letter-spacing 0.25s ease;
+}
+
+.register-link:hover,
+.register-link:focus-visible{
+  opacity: 0.75;
+  letter-spacing: 0.14em;
+}
+
 /* ---------- Footer ---------- */
 footer{
   padding: 44px 0;
@@ -208,13 +361,18 @@ footer{
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px){
+  .welcome-grid,
   .approach-grid,
-  .about-grid,
   .contact-grid{
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .pillars{ grid-template-columns: 1fr 1fr; }
+  .welcome-photo{ order: -1; max-width: 320px; }
+  .curriculum-row{ grid-template-columns: 1fr; gap: 10px; padding: 34px 0; }
+  .curriculum-instructor{ margin-top: 4px; }
+  .curriculum-info{ gap: 28px; }
+  .faculty-row{ grid-template-columns: 1fr; gap: 16px; padding: 30px 0; }
+  .faculty-photo{ max-width: 160px; }
   .service-row{ grid-template-columns: 1fr; gap: 12px; padding: 30px 0; }
   .faq-item{ padding: 30px 0; }
   section{ padding: 90px 0; }

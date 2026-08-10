@@ -16,6 +16,15 @@
   --silver:       #8fa8d1;   /* links, eyebrows, cool accent */
   --ember:        #c9a876;   /* warm accent — CTAs, emphasis */
 
+  /* -- Light-section variants (for alternating dark/light sections) --
+     Same accent hues as above, darkened enough to stay readable on --paper. */
+  --paper:            #f6f4ef; /* warm off-white section background */
+  --ink-on-light:      #14172c;
+  --ink-dim-on-light:  #52567a;
+  --line-on-light:     rgba(20,23,44,0.12);
+  --silver-on-light:   #3f5f94;
+  --ember-on-light:    #a9793f;
+
   /* -- Type -- */
   --font-display: 'Fraunces', serif;
   --font-body:    'Inter', sans-serif;
