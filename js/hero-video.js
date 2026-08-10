@@ -17,9 +17,9 @@
   // Some browsers reset playbackRate when a loop restarts — reapply to be safe.
   video.addEventListener('play', applyRate);
 
-  // const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // if (reduceMotion) {
-  //   video.removeAttribute('loop');
-  //   video.addEventListener('loadeddata', () => video.pause(), { once: true });
-  // }
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    video.removeAttribute('loop');
+    video.addEventListener('loadeddata', () => video.pause(), { once: true });
+  }
 })();
