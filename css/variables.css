@@ -1,35 +1,32 @@
-/* ==========================================================================
+/* ========================================================================== 
    DESIGN TOKENS
-   Change a value here and it updates everywhere on the site.
-   Add new tokens as the site grows (e.g. --bg-deep-2 for a new page).
    ========================================================================== */
 
 :root{
-  /* -- Colors: deep indigo night-sky palette -- */
-  --bg-deep:      #0a0d1c;   /* near-black, top of hero gradient */
-  --bg-indigo:    #161a34;   /* main body background */
-  --bg-indigo-2:  #1d2242;   /* bottom of hero gradient */
-  --ink:          #eef1fa;   /* primary text (near-white) */
-  --ink-dim:      #b7bdd8;   /* secondary/body text */
-  --violet:       #4d4a7a;   /* muted borders, icon strokes */
-  --line:         rgba(238,241,250,0.12); /* hairline dividers */
-  --silver:       #8fa8d1;   /* links, eyebrows, cool accent */
-  --ember:        #c9a876;   /* warm accent — CTAs, emphasis */
+  /* Deep indigo night-sky palette */
+  --bg-deep:      #0a0d1c;
+  --bg-indigo:    #161a34;
+  --bg-indigo-2:  #1d2242;
+  --ink:          #eef1fa;
+  --ink-dim:      #b7bdd8;
+  --violet:       #4d4a7a;
+  --line:         rgba(238,241,250,0.12);
+  --silver:       #8fa8d1;
+  --ember:        #c9a876;
 
-  /* -- Light-section variants (for alternating dark/light sections) --
-     Same accent hues as above, darkened enough to stay readable on --paper. */
-  --paper:            #f6f4ef; /* warm off-white section background */
+  /* Light-section variants */
+  --paper:            #f6f4ef;
   --ink-on-light:      #14172c;
   --ink-dim-on-light:  #52567a;
   --line-on-light:     rgba(20,23,44,0.12);
   --silver-on-light:   #3f5f94;
   --ember-on-light:    #a9793f;
 
-  /* -- Type -- */
+  /* Type */
   --font-display: 'Fraunces', serif;
   --font-body:    'Inter', sans-serif;
 
-  /* -- Misc -- */
+  /* Layout */
   --radius: 2px;
-  --max-width: 1080px;
+  --max-width: 1120px;
 }

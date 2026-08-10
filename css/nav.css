@@ -1,34 +1,51 @@
-/* ==========================================================================
+/* ========================================================================== 
    NAV
-   Overlay navigation bar that sits on top of the hero.
-   Reuse this file on every page for a consistent header.
+   Fixed over the hero, then gains a subtle backdrop after scrolling.
    ========================================================================== */
 
-nav{
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  z-index: 10;
+.site-nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px 40px;
+  min-height: 80px;
+  padding: 18px 40px;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease;
+}
+
+.site-nav.is-scrolled,
+.site-nav.menu-open{
+  background: rgba(10,13,28,0.88);
+  border-bottom-color: rgba(238,241,250,0.10);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .nav-name{
+  position: relative;
+  z-index: 22;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   letter-spacing: 0.01em;
   text-decoration: none;
+  color: var(--ink);
 }
 
 .nav-links{
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: 28px;
   list-style: none;
 }
 
 .nav-links a{
-  font-size: 0.85rem;
+  font-size: 0.81rem;
+  font-weight: 500;
   text-decoration: none;
   color: var(--ink-dim);
   transition: color 0.2s ease;
@@ -39,7 +56,106 @@ nav{
   color: var(--ink);
 }
 
-@media (max-width: 860px){
-  nav{ padding: 22px 24px; }
-  .nav-links{ display: none; } /* swap for a mobile menu when the site grows */
+.nav-links .nav-apply{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 16px;
+  border: 1px solid var(--ember);
+  color: var(--ember);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.nav-links .nav-apply:hover,
+.nav-links .nav-apply:focus-visible{
+  background: var(--ember);
+  color: var(--bg-deep);
+}
+
+.nav-toggle{
+  position: relative;
+  z-index: 22;
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-toggle span{
+  position: absolute;
+  left: 10px;
+  width: 22px;
+  height: 1px;
+  background: var(--ink);
+  transition: transform 0.2s ease, top 0.2s ease;
+}
+
+.nav-toggle span:first-child{ top: 16px; }
+.nav-toggle span:last-child{ top: 25px; }
+
+.site-nav.menu-open .nav-toggle span:first-child{
+  top: 21px;
+  transform: rotate(45deg);
+}
+
+.site-nav.menu-open .nav-toggle span:last-child{
+  top: 21px;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 920px){
+  .site-nav{
+    min-height: 70px;
+    padding: 14px 22px;
+  }
+
+  .nav-toggle{
+    display: block;
+  }
+
+  .nav-links{
+    position: fixed;
+    inset: 70px 0 auto 0;
+    display: grid;
+    gap: 0;
+    padding: 12px 22px 26px;
+    background: rgba(10,13,28,0.96);
+    border-bottom: 1px solid rgba(238,241,250,0.10);
+    transform: translateY(-120%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  .site-nav.menu-open .nav-links{
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-links li{
+    border-top: 1px solid rgba(238,241,250,0.08);
+  }
+
+  .nav-links li:first-child{
+    border-top: 0;
+  }
+
+  .nav-links a{
+    display: block;
+    padding: 14px 2px;
+    font-size: 0.95rem;
+  }
+
+  .nav-links .nav-apply{
+    width: fit-content;
+    margin-top: 12px;
+    padding: 0 18px;
+  }
 }

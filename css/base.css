@@ -1,7 +1,6 @@
-/* ==========================================================================
+/* ========================================================================== 
    BASE
-   Resets and global element styles. No layout or component-specific
-   rules here — those belong in layout.css / components.css.
+   Resets and global element styles.
    ========================================================================== */
 
 *{
@@ -12,6 +11,7 @@
 
 html{
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 
 body{
@@ -19,14 +19,16 @@ body{
   color: var(--ink);
   font-family: var(--font-body);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3{
   font-family: var(--font-display);
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
 }
 
 em{
@@ -39,33 +41,43 @@ a{
   color: inherit;
 }
 
-:focus-visible{
-  outline: 2px solid var(--silver);
-  outline-offset: 3px;
+button,
+a{
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Reusable small-caps label used above headings across sections */
+:focus-visible{
+  outline: 2px solid var(--silver);
+  outline-offset: 4px;
+}
+
 .eyebrow{
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
   color: var(--silver);
   font-weight: 600;
 }
 
-/* Centered content container — use inside any <section>.
-   NOTE: uses padding-left/-right (not the shorthand) on purpose — a
-   shorthand `padding: 0 32px` here would zero out any vertical padding
-   set by whatever element this class is applied to (e.g. section{padding:130px 0}
-   in sections.css), since a class selector always beats an element selector
-   on specificity regardless of stylesheet order. */
 .wrap{
-  max-width: var(--max-width);
+  width: min(100%, var(--max-width));
   margin: 0 auto;
   padding-left: 32px;
   padding-right: 32px;
 }
 
+@media (max-width: 680px){
+  .wrap{
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
+  *, *::before, *::after{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

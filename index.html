@@ -21,12 +21,20 @@
 </head>
 <body>
 
-<nav>
+<nav class="site-nav" aria-label="Primary navigation">
   <a class="nav-name" href="index.html">Core Continuum</a>
-  <ul class="nav-links">
+
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open navigation menu">
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="nav-links" id="primary-menu">
+    <li><a href="#welcome">About</a></li>
     <li><a href="#curriculum">Curriculum</a></li>
     <li><a href="#faculty">Faculty</a></li>
-    <li><a href="#register">Register</a></li>
+    <li><a href="#program-details">Program Details</a></li>
+    <li><a class="nav-apply" href="#register">Apply</a></li>
   </ul>
 </nav>
 
@@ -36,7 +44,6 @@
     <source src="assets/video/star.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
-    <!-- <p class="eyebrow" style="margin-bottom:18px;">Mastering The Work</p> -->
     <h1><em>Mastering</em> the Work</h1>
     <p>A Graduate level program for those wanting to deepen their understanding of the core journey and gain mastery as a practitioner.</p>
     <a class="cta" href="#register">Register</a>
@@ -45,155 +52,198 @@
 
 <main>
 
-  <section class="welcome wrap" id="welcome">
-    <div class="welcome-grid">
-      <div>
-        <div class="section-head">
-          <h2>An Invitation to Deepen</h2>
+  <section class="welcome section-light" id="welcome">
+    <div class="wrap">
+      <div class="welcome-grid">
+        <div>
+          <div class="section-head">
+            <h2>An Invitation to Deepen</h2>
+          </div>
+          <p>This training is designed for practitioners who already have a strong foundation, but who feel called to deepen their understanding and embodied wisdom. The aim is not simply to become more advanced but to continue unfolding as a seasoned student of the work.</p>
         </div>
-        <p>This training is designed for practitioners who already have a strong foundation, but who feel called to deepen their understanding and embodied wisdom. The aim is not simply to become more advanced but to continue unfolding as a seasoned student of the work.</p>
+        <div class="welcome-photo"><img src="assets/images/trees.jpg" alt="Trees in a forest"></div>
       </div>
-      <div class="welcome-photo"><img src="assets/images/trees.jpg" alt="trees"></div>
     </div>
   </section>
 
-  <section class="wrap" id="curriculum">
-    <div class="section-head">
-      <h2>Curriculum</h2>
-    </div>
-    <div class="curriculum-list">
-      <div class="curriculum-row">
-        <div class="curriculum-meta">
-          <p class="curriculum-date">Jan. 7–11, 2027</p>
-          <p class="curriculum-instructor">Jac Conaway</p>
-        </div>
-        <div class="curriculum-body">
-          <h3>Transpersonal Aspects of the Core Journey</h3>
-          <p>Fundamental to Core [and Pathwork] theory is the idea that each of us has a spiritual task to work on in our lifetime. This task involves developing a human life partly based on misconceptions and distortions from birth which brings us, via painful creations, to believe in false images about the nature of life.</p>
-          <p>The distortions, over time, become "built into" our bodies and energy systems, which make it difficult to free our energy to fully experience a free and satisfying life. Understanding this dynamic task both as a concept and from our own personal work helps when working with our clients' resistance to change, even when they notice these distorted images about their lives.</p>
-        </div>
+  <section class="section-dark" id="curriculum">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Curriculum</h2>
       </div>
-      <div class="curriculum-row">
-        <div class="curriculum-meta">
-          <p class="curriculum-date">Mar. 11–15, 2027</p>
-          <p class="curriculum-instructor">Erena Bramos</p>
+      <div class="curriculum-list">
+        <div class="curriculum-row">
+          <div class="curriculum-meta">
+            <p class="curriculum-date">Jan. 7–11, 2027</p>
+            <p class="curriculum-instructor">Erena Bramos</p>
+          </div>
+          <div class="curriculum-body">
+            <h3>Transpersonal Aspects of the Core Journey</h3>
+            <p>Fundamental to Core [and Pathwork] theory is the idea that each of us has a spiritual task to work on in our lifetime. This task involves developing a human life partly based on misconceptions and distortions from birth which brings us, via painful creations, to believe in false images about the nature of life.</p>
+            <p>The distortions, over time, become "built into" our bodies and energy systems, which make it difficult to free our energy to fully experience a free and satisfying life. Understanding this dynamic task both as a concept and from our own personal work helps when working with our clients' resistance to change, even when they notice these distorted images about their lives.</p>
+          </div>
         </div>
-        <div class="curriculum-body">
-          <h3>Transformation of Images</h3>
-          <p>[Course description placeholder]</p>
+        <div class="curriculum-row">
+          <div class="curriculum-meta">
+            <p class="curriculum-date">Mar. 11–15, 2027</p>
+            <p class="curriculum-instructor">Jac Conaway</p>
+          </div>
+          <div class="curriculum-body">
+            <h3>Transpersonal Aspects of the Core Journey</h3>
+            <p>Fundamental to Core [and Pathwork] theory is the idea that each of us has a spiritual task to work on in our lifetime. This task involves developing a human life partly based on misconceptions and distortions from birth which brings us, via painful creations, to believe in false images about the nature of life.</p>
+            <p>The distortions, over time, become "built into" our bodies and energy systems, which make it difficult to free our energy to fully experience a free and satisfying life. Understanding this dynamic task both as a concept and from our own personal work helps when working with our clients' resistance to change, even when they notice these distorted images about their lives.</p>
+          </div>
         </div>
-      </div>
-      <div class="curriculum-row">
-        <div class="curriculum-meta">
-          <p class="curriculum-date">May 13–19, 2027</p>
-          <p class="curriculum-instructor">Anna Timmermans &amp; Warren Moe</p>
-        </div>
-        <div class="curriculum-body">
-          <h3>Sexuality</h3>
-          <p>A deep dive into sexuality, energy and healing through Core</p>
-          <p>In Core Energetics, we view sexuality as much more than just physical intimacy. It’s the purest form of life energy – the force that fuels vitality in our body, drives human connection, and enables the continuation of life. This energy reaches its most powerful expression through our sexuality.</p>
-          <p>Human sexuality touches every layer of our being: body, mind, emotions, and spirit. When these levels work together in
-harmony, we feel a sense of wholeness, joy, and the vibrant aliveness we all long for. But for many of us, this connection is blocked. We've grown up with shame, guilt or fear surrounding sexuality –
-messages that labeled it as “dirty” or “inappropriate.” These internalized beliefs act as saboteurs, keeping us
-disconnected from our natural pleasure and from our ability to fully engage with others – and ourselves.</p>
+        <div class="curriculum-row">
+          <div class="curriculum-meta">
+            <p class="curriculum-date">May 13–19, 2027</p>
+            <p class="curriculum-instructor">Anna Timmermans &amp; Warren Moe</p>
+          </div>
+          <div class="curriculum-body">
+            <h3>Sexuality</h3>
+            <p>In Core Energetics, we view sexuality as much more than just physical intimacy. It’s the purest form of life energy – the force that fuels vitality in our body, drives human connection, and enables the continuation of life. This energy reaches its most powerful expression through our sexuality.</p>
+            <p>Human sexuality touches every layer of our being: body, mind, emotions, and spirit. When these levels work together in harmony, we feel a sense of wholeness, joy, and the vibrant aliveness we all long for. But for many of us, this connection is blocked. We've grown up with shame, guilt or fear surrounding sexuality – messages that labeled it as “dirty” or “inappropriate.” These internalized beliefs act as saboteurs, keeping us disconnected from our natural pleasure and from our ability to fully engage with others – and ourselves.</p>
             <p>This masterclass is an invitation to:</p>
             <ul>
               <li>Explore your own relationship with sexuality</li>
               <li>Uncover and challenge limiting beliefs and images</li>
               <li>Reconnect with your sexual energy and let it flow freely</li>
               <li>Expand your ability to hold space for your clients’ sexuality – ethically, safely, and with vitality</li>
+            </ul>
+          </div>
+        </div>
+        <div class="curriculum-row">
+          <div class="curriculum-meta">
+            <p class="curriculum-date">Aug. 19–23, 2027</p>
+            <p class="curriculum-instructor">Warren Moe</p>
+          </div>
+          <div class="curriculum-body">
+            <h3>Deconstructing Character Structures</h3>
+            <p>This class is an in-depth examination of the primary Character Structures, their descriptions, manifestations in body types, and the underlying purpose of their understanding in the uncovering of consciousness. By observing the chief feature of each, we will discuss how these seemingly automatic responses are connected to underlying images, negative statements and negative pleasure and remain fixated through identification, pride, self-will, and fear. The aim of this class is to bring light to the transformation of the negative fixated aspects to core qualities of the structures which offer greater freedom of will and higher consciousness.</p>
+          </div>
         </div>
       </div>
-      <div class="curriculum-row">
-        <div class="curriculum-meta">
-          <p class="curriculum-date">Aug. 19–23, 2027</p>
-          <p class="curriculum-instructor">Warren Moe</p>
-        </div>
-        <div class="curriculum-body">
-          <h3>Deconstructing Character Structures</h3>
-          <p>This class is an in-depth examination of the primary Character Structures, their descriptions, manifestations in body types, and the underlying purpose of their understanding in the uncovering of consciousness. By observing the chief feature of each, we will discuss how these seemingly automatic responses are connected to underlying images, negative statements and negative pleasure and remain fixated through identification, pride, self-will, and fear. The aim of this class is to bring light to the transformation of the negative fixated aspects to core qualities of the structures which offer greater freedom of will and higher consciousness.</p>
-        </div>
-      </div>
-    </div>
-    <div class="curriculum-info">
-      <div>Cost<strong>$4,500 USD</strong></div>
-      <div>Location<strong>Litchfield, CT</strong></div>
-    </div>
-  </section>
-
-  <section class="wrap" id="faculty">
-    <div class="section-head">
-      <h2>The Faculty</h2>
-    </div>
-    <div class="faculty-list">
-      <div class="faculty-row">
-        <div class="faculty-photo">
-          <img src="assets/images/warren.jpg" alt="Warren Moe">
-        </div>
-        <div>
-          <h3>Warren Moe</h3>
-          <p>Trained at the Institute of Core Energetics with John Pierrakos, he has been supervising students, held Senior Faculty positions at many international Core Energetic Institutes, and seeing clients for over 30 years.</p>
-        </div>
-      </div>
-      <div class="faculty-row">
-        <div class="faculty-photo">
-          <img src="assets/images/anna.jpg" alt="Anna Timmermans">
-        </div>
-        <div>
-          <h3>Anna Timmermans</h3>
-          <p>Anna has been practicing Core Energetics since the 90s. She started the Netherlands Institute of Core Energetics and was director until 2025. She has also taught internationally in Mexico, New York, Montreal, and other parts of Europe.</p>
-        </div>
-      </div>
-      <div class="faculty-row">
-        <div class="faculty-photo">
-          <img src="assets/images/erena.avif" alt="Erena Bramos">
-        </div>
-        <div>
-          <h3>Erena Bramos</h3>
-          <p>Erena has been practicing Core Energetics since the 80s. She is a supervisor and has trained practitioners internationally in Brazil, Greece, the Netherlands, and New York. She is also a Pathwork Helper and Gestalt therapist.</p>
-        </div>
-      </div>
-      <div class="faculty-row">
-        <div class="faculty-photo">
-          <img src="assets/images/jac.jpg" alt="Jac Conaway">
-        </div>
-        <div>
-          <h3>Jac Conaway</h3>
-          <p>Jac graduated as a Core therapist in June 1977 in New York at the Core Institute with John Pierrakos. He has been in practice seeing clients, supervising students, and teaching internationally since then. He also graduated as a Pathwork Helper in June 1978.</p>
+      <div class="program-details" id="program-details">
+        <p class="eyebrow">Program Details</p>
+        <div class="program-details-grid">
+          <div class="program-detail">
+            <strong>$4,500 USD</strong>
+            <span class="program-detail-label">Tuition</span>
+          </div>
+          <div class="program-detail">
+            <strong>Litchfield, Connecticut</strong>
+            <span class="program-detail-label">Location</span>
+          </div>
+          <div class="program-detail">
+            <strong>January–August 2027</strong>
+            <span class="program-detail-label">Four Intensives</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="wrap" id="register">
-    <div class="section-head">
-      <p class="eyebrow">Registration</p>
-      <h2>Register by October 1st</h2>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-block">
-        <h3>Requirements</h3>
-        <p>Interview required. Limited spaces available.</p>
+  <section class="section-light" id="faculty">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>The Faculty</h2>
       </div>
-      <div class="contact-block">
-        <h3>Email</h3>
-        <p><a href="mailto:wdcmcore@aol.com">wdcmcore@aol.com</a></p>
+      <div class="faculty-list">
+        <div class="faculty-row">
+          <div class="faculty-photo">
+            <img src="assets/images/warren.jpg" alt="Warren Moe">
+          </div>
+          <div class="faculty-copy">
+            <h3>Warren Moe</h3>
+            <p class="faculty-role">Core Energetics · Senior Faculty · Supervisor</p>
+            <p>Trained at the Institute of Core Energetics with John Pierrakos, he has been supervising students, held Senior Faculty positions at many international Core Energetic Institutes, and seeing clients for over 30 years.</p>
+          </div>
+        </div>
+        <div class="faculty-row">
+          <div class="faculty-photo">
+            <img src="assets/images/anna.jpg" alt="Anna Timmermans">
+          </div>
+          <div class="faculty-copy">
+            <h3>Anna Timmermans</h3>
+            <p class="faculty-role">Founder &amp; Former Director · Netherlands Institute of Core Energetics</p>
+            <p>Anna has been practicing Core Energetics since the 90s. She started the Netherlands Institute of Core Energetics and was director until 2025. She has also taught internationally in Mexico, New York, Montreal, and other parts of Europe.</p>
+          </div>
+        </div>
+        <div class="faculty-row">
+          <div class="faculty-photo">
+            <img src="assets/images/erena.avif" alt="Erena Bramos">
+          </div>
+          <div class="faculty-copy">
+            <h3>Erena Bramos</h3>
+            <p class="faculty-role">Supervisor · Pathwork Helper · Gestalt Therapist</p>
+            <p>Erena has been practicing Core Energetics since the 80s. She is a supervisor and has trained practitioners internationally in Brazil, Greece, the Netherlands, and New York. She is also a Pathwork Helper and Gestalt therapist.</p>
+          </div>
+        </div>
+        <div class="faculty-row">
+          <div class="faculty-photo">
+            <img src="assets/images/jac.jpg" alt="Jac Conaway">
+          </div>
+          <div class="faculty-copy">
+            <h3>Jac Conaway</h3>
+            <p class="faculty-role">Core Therapist · Pathwork Helper · Teacher</p>
+            <p>Jac graduated as a Core therapist in June 1977 in New York at the Core Institute with John Pierrakos. He has been in practice seeing clients, supervising students, and teaching internationally since then. He also graduated as a Pathwork Helper in June 1978.</p>
+          </div>
+        </div>
       </div>
-      <div class="contact-block">
-        <h3>Phone</h3>
-        <p><a href="tel:+19175438620">(917) 543-8620</a></p>
-      </div>
-      <a class="register-link" href="#">[ Register link — placeholder ]</a>
     </div>
   </section>
 
+  <section class="section-dark register-section" id="register">
+    <div class="wrap">
+      <div class="register-shell">
+        <p class="eyebrow">2027 Program Registration</p>
+        <h2>Register by October 15, 2026</h2>
+        <p class="register-lede">Four intensive modules · Litchfield, Connecticut · $4,500 USD</p>
+        <p class="register-note">Interview required · Limited enrollment</p>
+
+        <div class="register-actions">
+          <a class="button-primary" href="mailto:wdcmcore@aol.com?subject=2027%20Core%20Continuum%20Registration">Begin Registration</a>
+        </div>
+
+        <div class="register-contact">
+          <span>Questions?</span>
+          <a class="button-secondary" href="mailto:wdcmcore@aol.com">wdcmcore@aol.com</a>
+          <a class="button-secondary" href="tel:+19175438620">(917) 543-8620</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="wrap">
-  <span>Graduate School of Core Energetics</span>
-  <span>&copy; 2026. All rights reserved.</span>
 </footer>
 
 <script src="js/hero-video.js"></script>
+<script>
+  const nav = document.querySelector('.site-nav');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  const updateNavBackground = () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 48);
+  };
+
+  updateNavBackground();
+  window.addEventListener('scroll', updateNavBackground, { passive: true });
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('menu-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+  });
+
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('menu-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation menu');
+    });
+  });
+</script>
 </body>
 </html>
