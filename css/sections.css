@@ -161,6 +161,14 @@ section:last-of-type{
   max-width: 65ch;
 }
 
+.curriculum-body ul{
+  margin-top: 14px;
+  margin-left: 20px;
+  color: var(--ink-dim);
+  font-size: 0.98rem;
+  max-width: 65ch;
+}
+
 .curriculum-body p + p{ margin-top: 12px; }
 
 .curriculum-info{
