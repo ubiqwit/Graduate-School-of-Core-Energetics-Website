@@ -176,6 +176,42 @@ section:last-of-type{
   color: var(--ink);
 }
 
+.program-location-link{
+  color: inherit;
+  text-decoration: none;
+}
+
+.program-location-link strong{
+  display: inline;
+  transition: color 0.2s ease;
+}
+
+.program-link-arrow{
+  display: inline-block;
+  margin-left: 0.18em;
+  color: var(--silver);
+  font-size: 0.7em;
+  font-weight: 500;
+  vertical-align: 0.12em;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.program-location-link:hover strong,
+.program-location-link:focus-visible strong{
+  color: var(--silver);
+}
+
+.program-location-link:hover .program-link-arrow,
+.program-location-link:focus-visible .program-link-arrow{
+  color: var(--ember);
+  transform: translate(2px, -2px);
+}
+
+.program-location-link:focus-visible{
+  outline: 1px solid var(--silver);
+  outline-offset: 5px;
+}
+
 .program-detail-label{
   display: block;
   margin-top: 10px;
